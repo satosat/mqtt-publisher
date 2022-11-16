@@ -30,30 +30,32 @@
         <input type="text" name="message" id="message" class="form-control text-white bg-dark" placeholder="Your message here" autocomplete="off">
       </div>
 
-      <a href="#advanced" class="btn btn-success mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="advanced">Advanced</a>
-      <div class="collapse" id="advanced">
-        <!-- Quality of Service -->
-        <div class="mt-3">
-          <h5 class="text-white">Quality of Service</h5>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="qos" id="least" value="least" checked>
-            <label class="form-check-label text-white" for="least">
-              At Least Once
-            </label>
+      <div>
+        <a href="#advanced" class="btn btn-success mt-3" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="advanced">Advanced</a>
+        <div class="collapse" id="advanced">
+          <!-- Quality of Service -->
+          <div class="mt-3">
+            <h5 class="text-white">Quality of Service</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="qos" id="least" value="least" checked>
+              <label class="form-check-label text-white" for="least">
+                At Least Once
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="qos" value="most" id="most">
+              <label class="form-check-label text-white" for="most">
+                At Most Once
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="qos" value="exact" id="exact">
+              <label class="form-check-label text-white" for="exact">
+                Exactly Once
+              </label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="qos" value="most" id="most">
-            <label class="form-check-label text-white" for="most">
-              At Most Once
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="qos" value="exact" id="exact">
-            <label class="form-check-label text-white" for="exact">
-              Exactly Once
-            </label>
-          </div>
-        </div>
+      </div>
       
       <!-- Submit -->
       <div class="mt-4">
