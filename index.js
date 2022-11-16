@@ -12,24 +12,24 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-  if (!req.body.topic || !req.body.message) {
-    res.status(400).send({
+  if (!req.body.topic || !req.body.message || !req.body.qos) {
+    return res.status(400).send({
       message: "Bad Request",
       status: 400,
     });
   }
 
   const topic = req.body.topic;
-  const payload = JSON.stringify({
-    message: req.body.message,
-  });
+  const payload = JSON.stringify({ message: req.body.message });
+  const qos = req.body.qos;
+  const retain = false; // retain not working
 
-  const { error } = await publish(req.body.topic, payload);
+  const error = await publish(topic, payload, qos, retain);
 
   if (error) {
-    res.status(500).send({
+    return res.status(500).send({
       status: 500,
-      message: "Publish failed",
+      message: error.message,
     });
   }
 
