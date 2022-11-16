@@ -22,9 +22,8 @@ app.post("/", async (req, res) => {
   const topic = req.body.topic;
   const payload = JSON.stringify({ message: req.body.message });
   const qos = req.body.qos;
-  const retain = false; // retain not working
 
-  const error = await publish(topic, payload, qos, retain);
+  const error = await publish(topic, payload, qos);
 
   if (error) {
     return res.status(500).send({
