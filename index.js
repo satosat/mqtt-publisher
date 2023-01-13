@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-  if (!req.body.topic || !req.body.message || !req.body.qos) {
+  if (!req.body.topic || !req.body.message) {
     return res.status(400).send({
       message: "Bad Request",
       status: 400,
@@ -21,9 +21,8 @@ app.post("/", async (req, res) => {
 
   const topic = req.body.topic;
   const payload = JSON.stringify({ message: req.body.message });
-  const qos = req.body.qos;
 
-  const error = await publish(topic, payload, qos);
+  const error = await publish(topic, payload);
 
   if (error) {
     return res.status(500).send({

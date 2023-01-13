@@ -4,7 +4,7 @@ const mqtt = awscrt.mqtt;
 require("dotenv").config();
 
 /**
- * configure and return a new mqtt connection
+ * Configure and return a new mqtt connection
  */
 
 function get_connection() {
